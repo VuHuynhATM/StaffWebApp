@@ -1,0 +1,15 @@
+<div class="page">
+    <div class="header">Library System</div>
+    <div class="body">
+        <div class="txt">Login</div>
+        <div class="txtinput">
+            <div><input [(ngModel)]="userName" type="text" placeholder="User name" style="width: 100%;" pInputText /></div>
+            
+            <div><input [(ngModel)]="password" type="password" placeholder="Password" style="width: 100%;" pInputText /></div>
+            
+            <div style="text-align: center;"><p-button label="Login"></p-button></div>
+            
+        </div>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="text-align: center"></div>
+    </div>
+</div>

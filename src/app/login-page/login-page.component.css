@@ -1,0 +1,31 @@
+.header{
+    background-color: turquoise;
+    color: white;
+    font-size: 40px;
+    padding-left: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.body{
+    margin-top: 8%;
+    background-color: ghostwhite;
+    margin-left: 30%;
+    margin-right: 30%;
+    border-radius: 15px;
+}
+.g-signin2{
+    padding: 1% 5% 1% 5%;
+    padding-bottom: 15px;
+}
+.txt{
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
+.txtinput div{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 10px;
+}
