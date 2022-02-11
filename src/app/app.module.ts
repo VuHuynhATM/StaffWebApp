@@ -8,18 +8,28 @@ import { FormsModule } from '@angular/forms';
 import { AccountPageComponent } from './account-page/account-page.component';
 import { PanelMenuComponent } from './layout/panel-menu/panel-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NewServiceComponent } from './book-service/new-service/new-service.component';
+import { NewBookComponent } from './book-manager/new-book/new-book.component';
+import { SearchBookComponent } from './book-manager/search-book/search-book.component';
+import { SearchServiceComponent } from './book-service/search-service/search-service.component';
+import { UpdateAcountComponent } from './account-page/update-acount/update-acount.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { BookDetailComponent } from './book-manager/book-detail/book-detail.component';
+
+
 //google
 
 //prime
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
-import { HomePageComponent } from './home-page/home-page.component';
-import { HeaderComponent } from './layout/header/header.component';
 import {MenubarModule} from 'primeng/menubar';
 import {PanelMenuModule} from 'primeng/panelmenu';
-import { NewServiceComponent } from './book-service/new-service/new-service.component';
-import { NewBookComponent } from './book-manager/new-book/new-book.component';
-import { SearchBookComponent } from './book-manager/search-book/search-book.component';
+import {ImageModule} from 'primeng/image';
+import {DataViewModule} from 'primeng/dataview';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -31,7 +41,10 @@ import { SearchBookComponent } from './book-manager/search-book/search-book.comp
     PanelMenuComponent,
     NewServiceComponent,
     NewBookComponent,
-    SearchBookComponent
+    SearchBookComponent,
+    SearchServiceComponent,
+    UpdateAcountComponent,
+    BookDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +54,12 @@ import { SearchBookComponent } from './book-manager/search-book/search-book.comp
     InputTextModule,
     ButtonModule,
     MenubarModule,
-    PanelMenuModule
+    PanelMenuModule,
+    ImageModule,
+    DataViewModule,
+    DropdownModule,
+    InputTextareaModule,
+    CalendarModule
   ],
   providers: [ 
   ],

@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
 import { Book } from 'src/app/model/book';
 import { Category } from 'src/app/model/category';
 
 @Component({
-  selector: 'app-search-book',
-  templateUrl: './search-book.component.html',
-  styleUrls: ['./search-book.component.css']
+  selector: 'app-book-detail',
+  templateUrl: './book-detail.component.html',
+  styleUrls: ['./book-detail.component.css']
 })
-export class SearchBookComponent implements OnInit {
+export class BookDetailComponent implements OnInit {
 
   listCategory!: Category[];
 
   listBook!: Book[];
 
-  sortOptions!: SelectItem[];
+  id!:string;
 
-  sortOrder!: number;
-
-  sortField!: string;
-
-  sortKey!:any;
-  constructor() { }
+  book!:Book;
+  
+  constructor(private route: ActivatedRoute) { 
+    this.id=this.route.snapshot.paramMap.get('id')!;
+  }
 
   ngOnInit(): void {
+
     this.listCategory = new Array<Category>();
     this.listCategory.push(new Category('1', 'Toán', true));
     this.listCategory.push(new Category('2', 'Văn', true));
@@ -38,22 +38,12 @@ export class SearchBookComponent implements OnInit {
     this.listBook.push(new Book('5', 'Toán 5', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '4'));
     this.listBook.push(new Book('6', 'Toán 6', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '1'));
 
-    this.sortOptions = [
-      { label: 'Price High to Low', value: '!price' },
-      { label: 'Price Low to High', value: 'price' }
-    ];
-  }
-  onSortChange(event:any) {
-    let value = event.value;
-
-    if (value.indexOf('!') === 0) {
-      this.sortOrder = -1;
-      this.sortField = value.substring(1, value.length);
-    }
-    else {
-      this.sortOrder = 1;
-      this.sortField = value;
-    }
+    this.listBook.forEach(book => {
+      if(this.id===book.id){
+        this.book=book;
+        console.log(this.book);
+      }
+    });
   }
 
 }

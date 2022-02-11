@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 
 @Component({
@@ -37,7 +38,8 @@ export class PanelMenuComponent implements OnInit {
             },
             {
                 label: 'Search book',
-                icon:'pi pi-fw pi-search'
+                icon:'pi pi-fw pi-search',
+                routerLink:'/book-page'
             }
         ]
         }

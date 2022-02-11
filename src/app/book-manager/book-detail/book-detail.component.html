@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="bodyhome grid">
+    <div class="col-12 grid">
+        <div class="col-3">
+            <app-panel-menu></app-panel-menu>
+        </div>
+        <div class="col-8 grid">
+            <div class="bookInfo col-12 grid">
+                <div class="img">
+                    <p-image src="{{book.image}}" alt="Image" width="250"></p-image>
+                </div>
+                <div class="info">
+                    <div class="category item">
+                        <i class="pi pi-tag product-category-icon"></i>
+                        <span class="product-category" *ngFor="let item of listCategory">
+                            <span *ngIf="book.categoryID===item.id">
+                                {{item.name}}
+                            </span>
+                        </span>
+                    </div>
+                    <div class="name item">
+                        <label for="bookname" class="block">Name:</label>
+                        <input id="bookname" type="username" aria-describedby="bookname-help" pInputText
+                            [(ngModel)]="book.name" [disabled]="true" [style]="{'width':'100%'}"/>
+                    </div>
+                    <div class="description  item">
+                        <label for="description" class="block">description:</label>
+                        <textarea id="description" pInputTextarea [(ngModel)]="book.description" [disabled]="true"  aria-describedby="description-help" [style]="{'width':'100%'}"></textarea>
+                    </div>
+                    <div class="publish_year item">
+                        <label for="publish_year" class="block">Publish Year:</label>
+                        <p-calendar  id="publish_year" inputId="basic" [(ngModel)]="book.publish_year"  [style]="{'width':'100%'}" [disabled]="true"></p-calendar>
+                    </div>
+                    <div class="name item">
+                        <label for="publish_company" class="block">Publish Company:</label>
+                        <input id="publish_company" type="username" aria-describedby="publish_company-help" pInputText
+                            [(ngModel)]="book.publish_company" [disabled]="true" [style]="{'width':'100%'}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
