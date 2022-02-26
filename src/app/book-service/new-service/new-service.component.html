@@ -1,1 +1,52 @@
-<p>new-service works!</p>
+<app-header></app-header>
+<div class="bodyhome grid">
+    <div class="col-12 grid">
+        <div class="col-3">
+            <app-panel-menu></app-panel-menu>
+        </div>
+        <div class="col-8">
+            <div class="serviceInfo col-12 grid">
+                <div class="col-8">
+                    <span class="p-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <input type="text" pInputText placeholder="Search Book" [(ngModel)]="txtBookName"
+                            (ngModelChange)="searchBook()" />
+                    </span>
+                    <div class="grid listitem">
+                        <div class="col-3 card item" *ngFor="let product of listBook">
+                            <div class="product-grid-item-top">
+                                <div class="categorytag">
+                                    <i class="pi pi-tag product-category-icon"></i>
+                                    <span class="product-category" *ngFor="let item of listCategory">
+                                        <span *ngIf="product.Category_id===item.Id">
+                                            {{item.Name}}
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="product-grid-item-content" routerLink="{{product.Id_nfc}}">
+                                <img [src]="product.Image" [alt]="product.Name" />
+                                <div class="product-name">{{product.Name}}</div>
+                                <div class="product-description">{{product.Description}}</div>
+                            </div>
+                            <div class="product-grid-item-bottom">
+                                <span class="product-price">${{product.Price}}</span>
+                                <p-button icon="pi pi-pencil" [routerLink]="['/book-edit/'+product.Id_nfc]">
+                                </p-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="col-8">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText placeholder="Search Student" [(ngModel)]="txtStudentName"
+                                (ngModelChange)="searchStudent()" />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

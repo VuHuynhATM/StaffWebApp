@@ -9,6 +9,7 @@ import { GoogleSigninService } from '../service/google-signin.service';
 })
 export class LoginPageComponent implements OnInit {
   user!: gapi.auth2.GoogleUser;
+  error:string=localStorage.getItem('login-error')!;
   constructor(private signInService: GoogleSigninService,
     private ref: ChangeDetectorRef,
     private router: Router
@@ -16,16 +17,11 @@ export class LoginPageComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    if(this.user==null){
-    }
     this.signInService.observable().subscribe(user => {
       this.user = user;
-      if(this.user!=null){
-        console.log(this.user.getBasicProfile());
-      }
       this.ref.detectChanges;
     })
-    
+    this.error=localStorage.getItem('login-error')!;
   }
   signIn() {
     this.signInService.signIn();

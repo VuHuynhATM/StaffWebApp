@@ -9,7 +9,8 @@
         <!-- </div> -->
         <!-- <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="text-align: center"></div> -->
         <div class="btnLogin">
-            <p-button label="Login" icon="pi pi-google" (onClick)="signIn()" *ngIf="user==null"></p-button>
+            <p-button label="Login" icon="pi pi-google" (onClick)="signIn()"></p-button>
         </div>
+        <span>{{error}}</span>
     </div>
 </div>

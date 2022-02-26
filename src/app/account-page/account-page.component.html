@@ -2,27 +2,28 @@
 <div class="acountbd">
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">MSSV</span>
-        <input type="text" pInputText placeholder="MSSV" [disabled]="true" [(ngModel)]="user.mssv">
+        <input type="text" pInputText placeholder="MSSV" [disabled]="true" [(ngModel)]="user.C_mssv">
     </div>
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">Full Name</span>
-        <input type="text" pInputText placeholder="Username" [disabled]="true" [(ngModel)]="user.name">
+        <input type="text" pInputText placeholder="Username" [disabled]="true" [(ngModel)]="user.Name">
     </div>
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">Phone</span>
-        <input type="text" pInputText placeholder="Phone" [disabled]="true" [(ngModel)]="user.phone">
+        <input type="text" pInputText placeholder="Phone" [disabled]="true" [(ngModel)]="user.Phone">
     </div>
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">Email</span>
-        <input type="text" pInputText placeholder="email" [disabled]="true" [(ngModel)]="user.email">
+        <input type="text" pInputText placeholder="email" [disabled]="true" [(ngModel)]="user.Email">
     </div>
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">BirthDay</span>
-        <input type="text" pInputText placeholder="BirthDay" [disabled]="true" [(ngModel)]="user.birthDay">
+        <p-calendar  id="BirthDay" inputId="basic" [(ngModel)]="textdate"  [style]="{'width':'100%'}" [disabled]="true"></p-calendar>
+        <!-- <input type="text" pInputText placeholder="BirthDay" [disabled]="true" [(ngModel)]="textdate"> -->
     </div>
     <div class="p-inputgroup">
         <span class="p-inputgroup-addon">Address</span>
-        <input type="text" pInputText placeholder="Address" [disabled]="true" [(ngModel)]="user.address">
+        <input type="text" pInputText placeholder="Address" [disabled]="true" [(ngModel)]="user.Address">
     </div>
     <div class="btn">
         <button pButton pRipple label="Update" icon="pi pi-sync" [routerLink]="['/update-profile']"></button>

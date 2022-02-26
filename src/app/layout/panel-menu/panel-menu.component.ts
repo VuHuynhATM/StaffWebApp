@@ -21,10 +21,12 @@ export class PanelMenuComponent implements OnInit {
             {
                 label: 'New service',
                 icon:'pi pi-fw pi-plus',
+                routerLink:'/new-service'
             },
             {
                 label: 'Search service',
-                icon:'pi pi-fw pi-search'
+                icon:'pi pi-fw pi-search',
+                routerLink:'/service'
             }
         ]
         },
@@ -34,7 +36,8 @@ export class PanelMenuComponent implements OnInit {
         items: [
             {
                 label: 'New book',
-                icon:'pi pi-fw pi-plus'
+                icon:'pi pi-fw pi-plus',
+                routerLink:'/book-new'
             },
             {
                 label: 'Search book',

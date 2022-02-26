@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { UpdateAcountComponent } from './account-page/update-acount/update-acoun
 import { HomePageComponent } from './home-page/home-page.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { BookDetailComponent } from './book-manager/book-detail/book-detail.component';
+import { BookUpdateComponent } from './book-manager/book-update/book-update.component';
 
 
 //google
@@ -30,6 +32,8 @@ import {DataViewModule} from 'primeng/dataview';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CalendarModule} from 'primeng/calendar';
+import {FileUploadModule} from 'primeng/fileupload';
+import {InputNumberModule} from 'primeng/inputnumber';
 
 @NgModule({
   declarations: [
@@ -45,11 +49,13 @@ import {CalendarModule} from 'primeng/calendar';
     SearchServiceComponent,
     UpdateAcountComponent,
     BookDetailComponent,
+    BookUpdateComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     InputTextModule,
     ButtonModule,
@@ -59,7 +65,9 @@ import {CalendarModule} from 'primeng/calendar';
     DataViewModule,
     DropdownModule,
     InputTextareaModule,
-    CalendarModule
+    CalendarModule,
+    FileUploadModule,
+    InputNumberModule
   ],
   providers: [ 
   ],

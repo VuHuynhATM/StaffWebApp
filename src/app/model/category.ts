@@ -1,12 +1,10 @@
 export class Category {
-    id!:string;
-    name!:string;
-    status!:boolean;
+    Id!:string;
+    Name!:string;
 
-    constructor(id:string,name:string,status:boolean){
-        this.id=id;
-        this.name=name;
-        this.status=status;
+    constructor(id:string,name:string){
+        this.Id=id;
+        this.Name=name;
     }
 }
 

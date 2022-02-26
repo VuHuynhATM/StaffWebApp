@@ -18,30 +18,19 @@ export class BookDetailComponent implements OnInit {
 
   book!:Book;
   
+  textdate!:Date;
   constructor(private route: ActivatedRoute) { 
     this.id=this.route.snapshot.paramMap.get('id')!;
   }
 
   ngOnInit(): void {
-
-    this.listCategory = new Array<Category>();
-    this.listCategory.push(new Category('1', 'Toán', true));
-    this.listCategory.push(new Category('2', 'Văn', true));
-    this.listCategory.push(new Category('3', 'Anh', true));
-    this.listCategory.push(new Category('4', 'Tin', true));
-
-    this.listBook = new Array<Book>();
-    this.listBook.push(new Book('1', 'Toán 1', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '1'));
-    this.listBook.push(new Book('2', 'Toán 2', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '1'));
-    this.listBook.push(new Book('3', 'Toán 3', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '2'));
-    this.listBook.push(new Book('4', 'Toán 4', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '3'));
-    this.listBook.push(new Book('5', 'Toán 5', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '4'));
-    this.listBook.push(new Book('6', 'Toán 6', 'https://sachcanhdieu.com/wp-content/uploads/book/Toan-1/000.jpg?x', 'Toán 1', new Date('2019-01-16'), 'Toán company', 'BGD', 50000, true, '1'));
-
+    this.listBook = JSON.parse(localStorage.getItem('listBook')!);
+    this.listCategory = JSON.parse(localStorage.getItem('listCategory')!);
     this.listBook.forEach(book => {
-      if(this.id===book.id){
+      if(this.id===book.Id_nfc){
         this.book=book;
-        console.log(this.book);
+        this.textdate=new Date(this.book.Publish_year+'');
+        console.log(this.textdate);
       }
     });
   }

@@ -6,53 +6,55 @@
         </div>
         <div class="col-8 grid">
             <div class="bookInfo col-12 grid">
-                <div class="img">
+                <div class="img col-5">
+                    <label for="bookimage" class="block">Image:</label>
                     <p-image src="{{book.Image}}" alt="Image" width="350"></p-image>
+                    <input id="bookname" type="username" aria-describedby="bookimage-help" pInputText
+                        [(ngModel)]="book.Image" [style]="{'width':'100%'}" />
                 </div>
-                <div class="info">
+                <div class="info col-6">
                     <div class="category item">
-                        <i class="pi pi-tag product-category-icon"></i>
-                        <span class="product-category" *ngFor="let item of listCategory">
-                            <span *ngIf="book.Category_id===item.Id">
-                                {{item.Name}}
-                            </span>
-                        </span>
+                        <p-dropdown [options]="categortyItems" [(ngModel)]="item" placeholder="All Category"
+                            [virtualScroll]="true" [itemSize]="31" [filter]="false"></p-dropdown>
                     </div>
                     <div class="name item">
                         <label for="bookname" class="block">Name:</label>
                         <input id="bookname" type="username" aria-describedby="bookname-help" pInputText
-                            [(ngModel)]="book.Name" [disabled]="true" [style]="{'width':'100%'}"/>
+                            [(ngModel)]="book.Name" [style]="{'width':'100%'}" />
                     </div>
                     <div class="description  item">
                         <label for="description" class="block">description:</label>
-                        <textarea id="description" pInputTextarea [(ngModel)]="book.Description" [disabled]="true"  aria-describedby="description-help" [style]="{'width':'100%'}"></textarea>
+                        <textarea id="description" pInputTextarea [(ngModel)]="book.Description"
+                            aria-describedby="description-help" [style]="{'width':'100%'}"></textarea>
                     </div>
                     <div class="publish_year item">
                         <label for="publish_year" class="block">Publish Year:</label>
-                        <p-calendar  id="publish_year" inputId="basic" [(ngModel)]="textdate"  [style]="{'width':'100%'}" [disabled]="true"></p-calendar>
+                        <p-calendar id="publish_year" inputId="basic" [(ngModel)]="textdate" [style]="{'width':'100%'}">
+                        </p-calendar>
                     </div>
                     <div class="publish_company item">
                         <label for="publish_company" class="block">Publish Company:</label>
                         <input id="publish_company" type="username" aria-describedby="publish_company-help" pInputText
-                            [(ngModel)]="book.Publish_company" [disabled]="true" [style]="{'width':'100%'}"/>
+                            [(ngModel)]="book.Publish_company" [style]="{'width':'100%'}" />
                     </div>
                     <div class="author item">
                         <label for="author" class="block">Author:</label>
                         <input id="author" type="username" aria-describedby="author-help" pInputText
-                            [(ngModel)]="book.Author" [disabled]="true" [style]="{'width':'100%'}"/>
+                            [(ngModel)]="book.Author" [style]="{'width':'100%'}" />
                     </div>
                     <div class="price item">
                         <label for="price" class="block">price:</label>
-                        <input id="price" type="username" aria-describedby="price-help" pInputText
-                            [(ngModel)]="book.Price" [disabled]="true" [style]="{'width':'100%'}"/>
+                        <p-inputNumber inputId="integeronly" [(ngModel)]="book.Price" aria-describedby="price-help"
+                            [style]="{'width':'100%'}"></p-inputNumber>
                     </div>
                     <div class="status item">
                         <label for="status" class="block">status:</label>
                         <input id="status" type="username" aria-describedby="status-help" pInputText
-                            [(ngModel)]="book.Status" [disabled]="true" [style]="{'width':'100%'}"/>
+                            [(ngModel)]="book.Status" [disabled]="true" [style]="{'width':'100%'}" />
                     </div>
                     <div class="btn">
-                        <button pButton pRipple label="Update" icon="pi pi-sync" [routerLink]="['/book-edit/'+id]"></button>
+                        <p-button label="Update" icon="pi pi-sync" (onClick)="updateBook()"></p-button>
+
                     </div>
                 </div>
             </div>

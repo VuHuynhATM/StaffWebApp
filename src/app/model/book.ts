@@ -1,25 +1,25 @@
 export class Book {
-    id!:string;
-    name!:string;
-    image!:string;
-    description!:string;
-    publish_year!:Date;
-    publish_company!:string;
-    author!:string;
-    price!:number;
-    status!:boolean;
-    categoryID!:string;
+    Id_nfc!:string;
+    Name!:string;
+    Image!:string;
+    Description!:string;
+    Publish_year!:Date;
+    Publish_company!:string;
+    Author!:string;
+    Price!:number;
+    Status!:boolean;
+    Category_id!:string;
 
-    constructor(id:string,name:string,image:string,description:string,publish_year:Date,publish_company:string,author:string,price:number,status:boolean,categoryID:string){
-        this.id=id;
-        this.name=name;
-        this.image=image;
-        this.description=description;
-        this.publish_year=publish_year;
-        this.publish_company=publish_company;
-        this.author=this.author;
-        this.price=price;
-        this.status=status;
-        this.categoryID=categoryID;
+    constructor(id:string,Name:string,Image:string,Description:string,Publish_year:Date,Publish_company:string,Author:string,Price:number,Status:boolean,Category_id:string){
+        this.Id_nfc=id;
+        this.Name=Name;
+        this.Image=Image;
+        this.Description=Description;
+        this.Publish_year=Publish_year;
+        this.Publish_company=Publish_company;
+        this.Author=Author;
+        this.Price=Price;
+        this.Status=Status;
+        this.Category_id=Category_id;
     }
 }

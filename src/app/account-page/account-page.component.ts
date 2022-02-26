@@ -8,11 +8,13 @@ import { User } from '../model/user';
 })
 export class AccountPageComponent implements OnInit {
   user!: User;
+  textdate!:Date;
   constructor() {
   }
 
   ngOnInit(): void {
-    // this.user=new User('1','se1','htv','012345678','htv@gmail.com','hcm',new Date('2019-01-16'));
-    this.user=JSON.parse(sessionStorage.getItem('user1')!);
+    this.user=JSON.parse(sessionStorage.getItem('user')!);
+    console.log(this.user.Birthday);
+    this.textdate=new Date(this.user.Birthday);
   }
 }

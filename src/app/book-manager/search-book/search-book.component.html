@@ -5,46 +5,45 @@
             <app-panel-menu></app-panel-menu>
         </div>
         <div class="col-8">
-            <div class="card">
-                <p-dataView #dv [value]="listBook" [paginator]="true" [rows]="9" filterBy="name"
-                    [sortField]="sortField" [sortOrder]="sortOrder" layout="grid">
-                    <ng-template pTemplate="header">
-                        <div class="flex flex-column md:flex-row md:justify-content-between">
-                            <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="mb-2 md:mb-0"></p-dropdown>
-                            <span class="p-input-icon-left mb-2 md:mb-0">
-                                <i class="pi pi-search"></i>
-                                <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($any($event.target).value)">
-                            </span>
-                            <!-- <p-dataViewLayoutOptions></p-dataViewLayoutOptions> -->
-                        </div>
-                    </ng-template>
-                    <ng-template let-product pTemplate="gridItem">
-                        <div class="col-12 md:col-4">
-                            <div class="product-grid-item card">
-                                <div class="product-grid-item-top">
-                                    <div>
-                                        <i class="pi pi-tag product-category-icon"></i>
-                                        <span class="product-category" *ngFor="let item of listCategory">
-                                            <span *ngIf="product.categoryID===item.id">
-                                                {{item.name}}
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="product-grid-item-content"  routerLink="{{product.id}}">
-                                    <img [src]="product.image" [alt]="product.name"/>
-                                    <div class="product-name">{{product.name}}</div>
-                                    <div class="product-description">{{product.description}}</div>
-                                </div>
-                                <div class="product-grid-item-bottom">
-                                    <span class="product-price">${{product.price}}</span>
-                                    <p-button icon="pi pi-shopping-cart" [disabled]="product.inventoryStatus === 'OUTOFSTOCK'"></p-button>
-                                </div>
+            <div class="card grid">
+                <div class="col-12 search grid">
+                    <div class="col-6">
+                        <p-dropdown [options]="categortyItems" [(ngModel)]="item" placeholder="All Category" [virtualScroll]="true" [itemSize]="31" [filter]="false" (onChange)="dropClick()"></p-dropdown>
+                    </div>
+                    <div class="col-6">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input type="text" pInputText placeholder="Search" [(ngModel)]="txtSearch" (ngModelChange)="searchtext()" />
+                        </span>
+                    </div>
+                </div>
+                <div class="col-4" *ngFor="let product of listBook">
+                    <div class=" listitem card">
+                        <div class="product-grid-item-top">
+                            <div class="categorytag">
+                                <i class="pi pi-tag product-category-icon"></i>
+                                <span class="product-category" *ngFor="let item of listCategory">
+                                    <span *ngIf="product.Category_id===item.Id">
+                                        {{item.Name}}
+                                    </span>
+                                </span>
                             </div>
                         </div>
-                    </ng-template>
-                </p-dataView>
+                        <div class="product-grid-item-content" routerLink="{{product.Id_nfc}}">
+                            <img [src]="product.Image" [alt]="product.Name" />
+                            <div class="product-name">{{product.Name}}</div>
+                            <div class="product-description">{{product.Description}}</div>
+                        </div>
+                        <div class="product-grid-item-bottom">
+                            <span class="product-price">${{product.Price}}</span>
+                            <p-button icon="pi pi-pencil" [routerLink]="['/book-edit/'+product.Id_nfc]"></p-button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- <div class="btnpage">
+                <p-button label="Show more" icon="pi pi-plus" iconPos="right" (onClick)="showMore()"></p-button>
+            </div> -->
         </div>
     </div>
 </div>
