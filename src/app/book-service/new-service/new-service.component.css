@@ -96,3 +96,14 @@ margin-bottom: 2rem;
 .listitem{
     margin-top: 20px;
 }
+.listrental{
+    margin-top: 20px;
+    font-size: 10px;
+}
+.itemtext{
+    padding-top: 30Px;
+    padding-bottom: 30Px;
+}
+.btn{
+    padding-left: 40%;
+}

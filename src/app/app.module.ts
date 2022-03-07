@@ -34,6 +34,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CalendarModule} from 'primeng/calendar';
 import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
+import {ToastModule} from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import {InputNumberModule} from 'primeng/inputnumber';
     InputTextareaModule,
     CalendarModule,
     FileUploadModule,
-    InputNumberModule
+    InputNumberModule,
+    ToastModule
   ],
   providers: [ 
   ],

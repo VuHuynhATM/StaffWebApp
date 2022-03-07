@@ -4,7 +4,8 @@
         <div class="col-3">
             <app-panel-menu></app-panel-menu>
         </div>
-        <div class="col-8">
+        <div class="col-8 grid">
+            <p-toast></p-toast>
             <div class="serviceInfo col-12 grid">
                 <div class="col-8">
                     <span class="p-input-icon-left">
@@ -12,7 +13,7 @@
                         <input type="text" pInputText placeholder="Search Book" [(ngModel)]="txtBookName"
                             (ngModelChange)="searchBook()" />
                     </span>
-                    <div class="grid listitem">
+                    <div class="grid listitem" *ngIf="txtBookName!=''">
                         <div class="col-3 card item" *ngFor="let product of listBook">
                             <div class="product-grid-item-top">
                                 <div class="categorytag">
@@ -31,8 +32,31 @@
                             </div>
                             <div class="product-grid-item-bottom">
                                 <span class="product-price">${{product.Price}}</span>
-                                <p-button icon="pi pi-pencil" [routerLink]="['/book-edit/'+product.Id_nfc]">
-                                </p-button>
+                                <button type="button" pButton pRipple (click)="addCart(product)" icon="pi pi-plus"
+                                    class="p-button-success mb-2"></button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="listrental" *ngIf="listRental.length>0">
+                        <div class="item grid" *ngFor="let book of listRental">
+                            <div class="col-3">
+                                <img [src]="book.Image" [alt]="book.Name" />
+                            </div>
+                            <div class="col-3 itemtext">
+                                <i class="pi pi-tag product-category-icon"></i>
+                                    <span class="product-category" *ngFor="let item of listCategory">
+                                        <span *ngIf="book.Category_id===item.Id">
+                                            {{item.Name}}
+                                        </span>
+                                    </span>
+                            </div>
+                            <div class="col-3 itemtext">
+                                <div class="product-name">{{book.Name}}</div>
+                            </div>
+                            <div class="col-3 itemtext">
+                                <button type="button" pButton pRipple (click)="removeitem(book)" icon="pi pi-trash"
+                                    class="p-button-success mb-2"></button>
                             </div>
                         </div>
                     </div>
@@ -45,6 +69,29 @@
                                 (ngModelChange)="searchStudent()" />
                         </span>
                     </div>
+                    <div class="studentinfo">
+                        <div *ngIf="user!=undefined">
+                            <div class="p-inputgroup">
+                                <!-- <span class="p-inputgroup-addon">MSSV</span> -->
+                                <input type="text" pInputText placeholder="MSSV" [disabled]="true"
+                                    [(ngModel)]="user.C_mssv">
+                            </div>
+                            <div class="p-inputgroup">
+                                <!-- <span class="p-inputgroup-addon">Full Name</span> -->
+                                <input type="text" pInputText placeholder="Username" [disabled]="true"
+                                    [(ngModel)]="user.Name">
+                            </div>
+                            <div class="p-inputgroup">
+                                <!-- <span class="p-inputgroup-addon">Email</span> -->
+                                <input type="text" pInputText placeholder="Email" [disabled]="true"
+                                    [(ngModel)]="user.Email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn" *ngIf="listRental.length>0 && user!=undefined">
+                    <button type="button" pButton pRipple label="Create service" icon="pi pi-plus"
+                                    class="p-button-success mb-2"></button>
                 </div>
             </div>
         </div>
