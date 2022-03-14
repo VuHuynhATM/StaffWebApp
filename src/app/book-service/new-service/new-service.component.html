@@ -45,11 +45,11 @@
                             </div>
                             <div class="col-3 itemtext">
                                 <i class="pi pi-tag product-category-icon"></i>
-                                    <span class="product-category" *ngFor="let item of listCategory">
-                                        <span *ngIf="book.Category_id===item.Id">
-                                            {{item.Name}}
-                                        </span>
+                                <span class="product-category" *ngFor="let item of listCategory">
+                                    <span *ngIf="book.Category_id===item.Id">
+                                        {{item.Name}}
                                     </span>
+                                </span>
                             </div>
                             <div class="col-3 itemtext">
                                 <div class="product-name">{{book.Name}}</div>
@@ -90,8 +90,8 @@
                     </div>
                 </div>
                 <div class="btn" *ngIf="listRental.length>0 && user!=undefined">
-                    <button type="button" pButton pRipple label="Create service" icon="pi pi-plus"
-                                    class="p-button-success mb-2"></button>
+                    <button type="button" pButton pRipple (click)="CreateService()" icon="pi pi-plus" label="Create service"
+                        class="p-button-success mb-2"></button>
                 </div>
             </div>
         </div>

@@ -5,7 +5,46 @@
             <app-panel-menu></app-panel-menu>
         </div>
         <div class="col-8">
-            hello
+            <div class="card grid">
+                <div class="col-12" *ngFor="let product of listService">
+                    <div class=" listitem card">
+                        <div class="product-grid-item-top grid">
+                            <div class="col-4 categorytag">
+                                <span class="p-input-icon-left">
+                                    <i class="pi pi-user"></i>
+                                    <input type="text" pInputText [disabled]="true" [(ngModel)]="product.user.Name" />
+                                </span>
+                            </div>
+                            <div class="col-4 categorytag">
+                                <span class="product-category">
+                                    <p-calendar id="BirthDay" inputId="basic" [(ngModel)]="product.dateRental"
+                                        [disabled]="true" [style]="{'width':'100%'}"></p-calendar>
+                                </span>
+                            </div>
+                            <div class="col-4 categorytag">
+                                <span class="product-category">
+                                    <p-calendar id="BirthDay" inputId="basic" [(ngModel)]="product.dateReturn"
+                                        [disabled]="true" [style]="{'width':'100%'}"></p-calendar>
+                                </span>
+                            </div>
+                            <div class="grid">
+                                <div class="col-12" *ngFor="let product of product.listRental">
+                                    <div class="product-list-item">
+                                        <img [src]="product.Image" [alt]="product.Name" />
+                                        <div class="product-list-detail">
+                                            <div class="product-name">{{product.Name}}</div>
+                                            <div class="product-description">{{product.Description}}</div>
+                                        </div>
+                                        <div class="product-list-action">
+                                            <span class="product-price">${{product.Price}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -51,6 +51,8 @@ export class SearchBookComponent implements OnInit {
       for (let i = 0; i < this.listCategory.length; i++) {
         this.categortyItems.push({ label: this.listCategory[i].Name, value: this.listCategory[i].Id });
       }
+    console.log(this.listCategory);
+
     })
   }
   getbook() {

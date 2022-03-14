@@ -97,4 +97,7 @@ export class NewServiceComponent implements OnInit {
       this.listRental.splice(index, 1);
     }
   }
+  CreateService(){
+    console.log(this.listRental);
+  }
 }
