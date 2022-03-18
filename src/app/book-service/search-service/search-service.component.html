@@ -5,27 +5,32 @@
             <app-panel-menu></app-panel-menu>
         </div>
         <div class="col-8">
+            <p-toast></p-toast>
             <div class="card grid">
                 <div class="col-12" *ngFor="let product of listService">
                     <div class=" listitem card">
                         <div class="product-grid-item-top grid">
-                            <div class="col-4 categorytag">
+                            <div class="col-3 ">
                                 <span class="p-input-icon-left">
                                     <i class="pi pi-user"></i>
-                                    <input type="text" pInputText [disabled]="true" [(ngModel)]="product.user.Name" />
+                                    <input type="text" pInputText [disabled]="true" [(ngModel)]="product.user.Name"
+                                        [style]="{'width':'100%'}" />
                                 </span>
                             </div>
-                            <div class="col-4 categorytag">
-                                <span class="product-category">
-                                    <p-calendar id="BirthDay" inputId="basic" [(ngModel)]="product.dateRental"
-                                        [disabled]="true" [style]="{'width':'100%'}"></p-calendar>
-                                </span>
+                            <div class="col-3 ">
+                                <p-calendar id="BirthDay" inputId="basic" [(ngModel)]="product.dateRental"
+                                    [disabled]="true" [style]="{'width':'100%'}"></p-calendar>
+                                <!-- <input type="date" pInputText [disabled]="true" [(ngModel)]="product.dateRental"
+                                    [style]="{'width':'100%'}" /> -->
                             </div>
-                            <div class="col-4 categorytag">
-                                <span class="product-category">
-                                    <p-calendar id="BirthDay" inputId="basic" [(ngModel)]="product.dateReturn"
-                                        [disabled]="true" [style]="{'width':'100%'}"></p-calendar>
-                                </span>
+                            <div class="col-3 ">
+                                <p-calendar id="BirthDay" inputId="basic" [(ngModel)]="product.dateReturn"
+                                    [disabled]="false" [style]="{'width':'100%'}"></p-calendar>
+                                <!-- <input type="date" pInputText [disabled]="false" [(ngModel)]="product.dateReturn"
+                                    [style]="{'width':'100%'}" /> -->
+                            </div>
+                            <div class="col-3">
+                                <p-button label="Update" icon="pi pi-sync" (onClick)="update(product.id)"></p-button>
                             </div>
                             <div class="grid">
                                 <div class="col-12" *ngFor="let product of product.listRental">
@@ -33,10 +38,18 @@
                                         <img [src]="product.Image" [alt]="product.Name" />
                                         <div class="product-list-detail">
                                             <div class="product-name">{{product.Name}}</div>
+                                            <div class="product-description">
+                                                <i class="pi pi-tag product-category-icon"></i>
+                                                <span class="product-category" *ngFor="let item of listCategory">
+                                                    <span *ngIf="product.Category_id==item.Id">
+                                                        {{item.Name}}
+                                                    </span>
+                                                </span>
+                                            </div>
                                             <div class="product-description">{{product.Description}}</div>
                                         </div>
                                         <div class="product-list-action">
-                                            <span class="product-price">${{product.Price}}</span>
+                                            <span class="product-price">{{product.Price}}VND</span>
                                         </div>
                                     </div>
                                 </div>

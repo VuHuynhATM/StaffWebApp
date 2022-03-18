@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectItem } from 'primeng/api';
+import { MessageService, SelectItem } from 'primeng/api';
 import { Book } from 'src/app/model/book';
 import { Category } from 'src/app/model/category';
 import { BookService } from 'src/app/service/book.service';
@@ -8,7 +8,8 @@ import { CategoryService } from 'src/app/service/category.service';
 @Component({
   selector: 'app-new-book',
   templateUrl: './new-book.component.html',
-  styleUrls: ['./new-book.component.css']
+  styleUrls: ['./new-book.component.css'],
+  providers: [MessageService]
 })
 export class NewBookComponent implements OnInit {
 
@@ -25,7 +26,9 @@ export class NewBookComponent implements OnInit {
   textdate!: Date;
 
   constructor(private bookService: BookService,
-    private categoryService: CategoryService) { }
+    private categoryService: CategoryService,
+    private messageService: MessageService
+    ) { }
 
   ngOnInit(): void {
     this.categortyItems=[];
@@ -56,5 +59,9 @@ export class NewBookComponent implements OnInit {
     this.book.Category_id=this.item;
     console.log(this.book);
     this.bookService.insertBook(this.book);
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Create service success' });
+    setTimeout(() => {
+      window.location.href = '/book-page';
+    }, 1000);
   }
 }

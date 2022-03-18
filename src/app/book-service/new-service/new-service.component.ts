@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Book } from 'src/app/model/book';
 import { Category } from 'src/app/model/category';
+import { Service } from 'src/app/model/service';
 import { User } from 'src/app/model/user';
 import { BookService } from 'src/app/service/book.service';
 import { CategoryService } from 'src/app/service/category.service';
@@ -29,6 +30,8 @@ export class NewServiceComponent implements OnInit {
 
   user!: User;
 
+  listService!: Service[];
+
   constructor(private bookService: BookService,
     private userService: UserServiceService,
     private categoryService: CategoryService,
@@ -40,6 +43,7 @@ export class NewServiceComponent implements OnInit {
     setTimeout(() => {
       this.getCategory();
     }, 100);
+    this.listService = [];
   }
 
   getCategory() {
@@ -71,9 +75,9 @@ export class NewServiceComponent implements OnInit {
   addCart(book: Book) {
     if (this.listRental.length > 0) {
       var index = -1;
-      for(var i=0;i<this.listRental.length;i++){
-        if(this.listRental[i].Id_nfc===book.Id_nfc){
-          index=i;
+      for (var i = 0; i < this.listRental.length; i++) {
+        if (this.listRental[i].Id_nfc === book.Id_nfc) {
+          index = i;
         }
       }
       console.log(index);
@@ -97,7 +101,10 @@ export class NewServiceComponent implements OnInit {
       this.listRental.splice(index, 1);
     }
   }
-  CreateService(){
-    console.log(this.listRental);
+  CreateService() {
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Create service success' });
+    setTimeout(() => {
+      window.location.href = '/service';
+    }, 1000);
   }
 }
